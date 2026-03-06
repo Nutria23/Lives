@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutoVentas Live — Facebook</title>
+<title>AutoVentas Live — Manual</title>
 <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -26,7 +26,6 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);font-family:'Cabinet Grotesk',sans-serif;color:var(--txt);min-height:100vh;overflow-x:hidden}
 
-/* NOISE TEXTURE */
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
 
 /* HEADER */
@@ -42,20 +41,12 @@ header{
 .brand{display:flex;align-items:center;gap:12px}
 .brand-icon{
   width:36px;height:36px;border-radius:10px;
-  background:linear-gradient(135deg,var(--fb),#a855f7);
+  background:linear-gradient(135deg,var(--green),#4f8ef7);
   display:flex;align-items:center;justify-content:center;
   font-size:1.1rem;
 }
 .brand h1{font-family:'Clash Display',sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:-.3px}
-.brand h1 span{color:var(--fb)}
-.live-badge{
-  display:flex;align-items:center;gap:7px;
-  padding:5px 13px;border-radius:20px;
-  background:rgba(255,59,92,.12);border:1px solid rgba(255,59,92,.25);
-  font-size:.75rem;font-weight:700;color:var(--red);letter-spacing:.5px;
-}
-.live-dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.2s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.brand h1 span{color:var(--green)}
 
 .stats-bar{display:flex;gap:6px}
 .stat-chip{
@@ -67,8 +58,8 @@ header{
 .stat-chip .l{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
 
 /* LAYOUT */
-.wrap{max-width:1440px;margin:0 auto;padding:24px 28px;position:relative;z-index:1}
-.grid{display:grid;grid-template-columns:380px 1fr;gap:20px;align-items:start}
+.wrap{max-width:1200px;margin:0 auto;padding:24px 28px;position:relative;z-index:1}
+.grid{display:grid;grid-template-columns:360px 1fr;gap:20px;align-items:start}
 
 /* CARDS */
 .card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden}
@@ -79,38 +70,10 @@ header{
 }
 .card-head h2{font-family:'Clash Display',sans-serif;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
 .card-head .dot{width:8px;height:8px;border-radius:50%}
-.dot-fb{background:var(--fb)}
 .dot-green{background:var(--green)}
-.dot-red{background:var(--red)}
 .dot-amber{background:var(--amber)}
+.dot-blue{background:var(--blue)}
 .card-body{padding:20px}
-
-/* =====================
-   SETUP PANEL (Step system)
-   ===================== */
-.steps{display:flex;flex-direction:column;gap:0}
-.step{
-  display:flex;gap:14px;padding:0 0 0 0;
-  position:relative;
-}
-.step:not(:last-child)::after{
-  content:'';position:absolute;left:16px;top:36px;
-  width:1px;height:calc(100% - 8px);
-  background:var(--border2);
-}
-.step-num{
-  width:32px;height:32px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  font-family:'Clash Display',sans-serif;font-size:.85rem;font-weight:700;
-  background:var(--s2);border:1px solid var(--border2);color:var(--muted);
-  transition:all .3s;
-}
-.step.active .step-num{background:var(--fb);border-color:var(--fb);color:#fff}
-.step.done .step-num{background:var(--green);border-color:var(--green);color:#000}
-.step-content{padding-bottom:22px;flex:1}
-.step-title{font-family:'Clash Display',sans-serif;font-size:.92rem;font-weight:600;margin-bottom:6px;color:var(--txt)}
-.step.done .step-title{color:var(--green)}
-.step-desc{font-size:.82rem;color:var(--muted);line-height:1.5;margin-bottom:10px}
 
 /* INPUTS */
 .inp-wrap{margin-bottom:10px}
@@ -121,7 +84,7 @@ header{
   color:var(--txt);font-family:'Cabinet Grotesk',sans-serif;font-size:.9rem;
   padding:10px 13px;outline:none;transition:border-color .2s;
 }
-.inp:focus{border-color:var(--fb)}
+.inp:focus{border-color:var(--green)}
 .inp::placeholder{color:var(--muted)}
 .inp-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 
@@ -132,93 +95,12 @@ header{
   font-family:'Clash Display',sans-serif;font-size:.82rem;font-weight:600;
   text-transform:uppercase;letter-spacing:.7px;transition:all .2s;
 }
-.btn-fb{background:var(--fb);color:#fff;width:100%}
-.btn-fb:hover{background:var(--fb-dark);transform:translateY(-1px)}
 .btn-sm{padding:7px 14px;font-size:.78rem}
 .btn-green{background:var(--green);color:#000}
 .btn-green:hover{opacity:.85;transform:translateY(-1px)}
 .btn-outline{background:transparent;border:1px solid var(--border2);color:var(--muted)}
 .btn-outline:hover{border-color:var(--blue);color:var(--blue)}
-.btn-red{background:rgba(255,59,92,.15);color:var(--red);border:1px solid rgba(255,59,92,.3)}
-.btn-red:hover{background:rgba(255,59,92,.25)}
 .btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important}
-
-/* HELP LINKS */
-.help-link{font-size:.78rem;color:var(--fb);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
-.help-link:hover{text-decoration:underline}
-
-/* TOKEN STATUS */
-.token-status{
-  display:flex;align-items:center;gap:8px;
-  padding:9px 12px;border-radius:8px;margin-top:8px;
-  font-size:.82rem;font-weight:500;
-}
-.token-status.ok{background:rgba(0,229,160,.1);border:1px solid rgba(0,229,160,.25);color:var(--green)}
-.token-status.err{background:rgba(255,59,92,.1);border:1px solid rgba(255,59,92,.25);color:var(--red)}
-.token-status.idle{background:var(--s1);border:1px solid var(--border);color:var(--muted)}
-
-/* LIVE STATUS */
-.live-status{
-  padding:12px 16px;border-radius:10px;
-  background:var(--s1);border:1px solid var(--border);
-  margin-bottom:12px;
-}
-.ls-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.ls-label{font-size:.78rem;color:var(--muted)}
-.ls-value{font-size:.82rem;font-weight:600;color:var(--txt)}
-.ls-value.active{color:var(--green)}
-
-/* POLLING INDICATOR */
-.polling-bar{
-  height:3px;border-radius:2px;
-  background:linear-gradient(90deg,var(--fb),var(--green));
-  animation:poll-slide 2s infinite;
-  margin-top:10px;
-  display:none;
-}
-.polling-bar.active{display:block}
-@keyframes poll-slide{0%{transform:scaleX(0) translateX(0);transform-origin:left}50%{transform:scaleX(1);transform-origin:left}51%{transform:scaleX(1);transform-origin:right}100%{transform:scaleX(0);transform-origin:right}}
-
-/* =====================
-   RIGHT SIDE
-   ===================== */
-.right-col{display:flex;flex-direction:column;gap:16px}
-
-/* COMMENT FEED */
-.feed-wrap{max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding-right:4px}
-.comment-item{
-  display:flex;gap:10px;padding:10px 12px;
-  border-radius:10px;background:var(--s1);border:1px solid var(--border);
-  transition:all .3s;animation:slideIn .3s ease;
-}
-@keyframes slideIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.comment-item.detected{border-color:rgba(0,229,160,.35);background:rgba(0,229,160,.05)}
-.comment-item.registered{border-color:rgba(79,142,247,.3);background:rgba(79,142,247,.04);opacity:.6}
-.c-avatar{
-  width:32px;height:32px;border-radius:50%;
-  background:linear-gradient(135deg,var(--fb),#a855f7);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.85rem;font-weight:700;flex-shrink:0;color:#fff;
-}
-.c-body{flex:1;min-width:0}
-.c-name{font-size:.8rem;font-weight:700;color:var(--txt)}
-.c-text{font-size:.82rem;color:var(--muted);line-height:1.4;word-break:break-word}
-.c-tags{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap}
-.c-tag{
-  font-size:.7rem;padding:2px 7px;border-radius:20px;
-  font-weight:600;letter-spacing:.3px;
-}
-.tag-venta{background:rgba(0,229,160,.15);color:var(--green)}
-.tag-producto{background:rgba(79,142,247,.15);color:var(--blue)}
-.tag-precio{background:rgba(255,176,32,.15);color:var(--amber)}
-.c-actions{display:flex;gap:5px;align-items:center;flex-shrink:0}
-
-/* MANUAL CAPTURE */
-.manual-section{
-  border-top:1px solid var(--border);
-  padding-top:16px;margin-top:4px;
-}
-.manual-section .sec-title{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
 
 /* ORDERS TABLE */
 .tbl-wrap{overflow-x:auto}
@@ -234,14 +116,12 @@ tbody tr:hover{background:rgba(79,142,247,.04)}
 tbody td{padding:10px 12px;vertical-align:middle}
 .badge{display:inline-flex;align-items:center;padding:3px 9px;border-radius:20px;font-size:.75rem;font-weight:600}
 .badge-client{background:rgba(79,142,247,.15);color:var(--blue)}
-.badge-source-auto{background:rgba(0,229,160,.12);color:var(--green)}
-.badge-source-manual{background:rgba(255,176,32,.12);color:var(--amber)}
 .price-val{font-family:'Clash Display',sans-serif;font-weight:700;color:var(--amber)}
 .del-btn{background:none;border:none;color:var(--border2);cursor:pointer;font-size:.9rem;padding:3px 6px;border-radius:5px;transition:color .2s}
 .del-btn:hover{color:var(--red)}
 
 /* CLIENTS SUMMARY */
-.clients-grid{display:flex;flex-direction:column;gap:7px;max-height:220px;overflow-y:auto}
+.clients-grid{display:flex;flex-direction:column;gap:7px;max-height:260px;overflow-y:auto}
 .client-row{
   display:flex;align-items:center;justify-content:space-between;
   padding:10px 14px;border-radius:10px;
@@ -272,6 +152,10 @@ tbody td{padding:10px 12px;vertical-align:middle}
 .btn-excel{background:linear-gradient(135deg,#217346,#1e6e40);color:#fff}
 .btn-excel:hover{opacity:.88;transform:translateY(-1px)}
 
+/* CAPTURA MANUAL */
+.captura-card .card-body{padding:20px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+
 /* FLASH TOAST */
 #toast{
   position:fixed;bottom:24px;right:24px;z-index:999;
@@ -289,22 +173,12 @@ tbody td{padding:10px 12px;vertical-align:middle}
 .empty{text-align:center;padding:28px 0;color:var(--muted);font-size:.88rem}
 .empty-icon{font-size:2rem;margin-bottom:8px}
 
-/* SETUP COMPLETE BANNER */
-.setup-banner{
-  display:none;
-  padding:12px 16px;border-radius:10px;
-  background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.25);
-  margin-bottom:14px;
-  align-items:center;gap:10px;font-size:.85rem;
-}
-.setup-banner.show{display:flex}
-
 /* SCROLLBAR */
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:var(--s1)}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
 
-@media(max-width:960px){
+@media(max-width:900px){
   .grid{grid-template-columns:1fr}
   .stats-bar{display:none}
 }
@@ -315,12 +189,8 @@ tbody td{padding:10px 12px;vertical-align:middle}
 <!-- HEADER -->
 <header>
   <div class="brand">
-    <div class="brand-icon">📡</div>
+    <div class="brand-icon">🛒</div>
     <h1>Auto<span>Ventas</span> Live</h1>
-  </div>
-  <div class="live-badge" id="live-badge">
-    <div class="live-dot"></div>
-    <span id="live-badge-txt">EN ESPERA</span>
   </div>
   <div class="stats-bar">
     <div class="stat-chip"><div class="n" id="h-pedidos">0</div><div class="l">Pedidos</div></div>
@@ -332,106 +202,45 @@ tbody td{padding:10px 12px;vertical-align:middle}
 <div class="wrap">
 <div class="grid">
 
-<!-- ========== LEFT: SETUP ========== -->
+<!-- ========== LEFT ========== -->
 <div style="display:flex;flex-direction:column;gap:16px">
 
-  <div class="card">
-    <div class="card-head"><div class="dot dot-fb"></div><h2>Configuración Facebook</h2></div>
+  <!-- CAPTURA MANUAL -->
+  <div class="card captura-card">
+    <div class="card-head"><div class="dot dot-green"></div><h2>Registrar Pedido</h2></div>
     <div class="card-body">
+      <div class="inp-wrap">
+        <label>Comentario (opcional)</label>
+        <textarea class="inp" id="manual-comment" placeholder='Ej: "María yo quiero el vestido rojo $350"' style="resize:vertical;min-height:64px"></textarea>
+      </div>
+      <button class="btn btn-outline btn-sm" style="margin-bottom:14px" onclick="parsearManual()">🤖 Auto-detectar del comentario</button>
 
-      <div class="setup-banner" id="setup-ok-banner">
-        ✅ <span>Configuración completa — listo para detectar ventas</span>
+      <div class="form-grid">
+        <div class="inp-wrap" style="margin-bottom:0">
+          <label>Cliente</label>
+          <input class="inp" id="m-cliente" placeholder="Nombre">
+        </div>
+        <div class="inp-wrap" style="margin-bottom:0">
+          <label>Precio $</label>
+          <input class="inp" id="m-precio" type="number" placeholder="0.00">
+        </div>
+        <div class="inp-wrap" style="margin-bottom:0">
+          <label>Producto</label>
+          <input class="inp" id="m-producto" placeholder="Nombre del producto">
+        </div>
+        <div class="inp-wrap" style="margin-bottom:0">
+          <label>Cantidad</label>
+          <input class="inp" id="m-cantidad" type="number" value="1" min="1">
+        </div>
       </div>
 
-      <div class="steps">
-
-        <!-- STEP 1 -->
-        <div class="step active" id="step1">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <div class="step-title">Crear App en Meta Developers</div>
-            <div class="step-desc">Ve a developers.facebook.com → "Crear App" → tipo "Negocio". Copia tu <strong>App ID</strong> y <strong>App Secret</strong>.</div>
-            <a class="help-link" href="https://developers.facebook.com/apps/create/" target="_blank">🔗 Abrir Meta Developers</a>
-            <div class="inp-wrap" style="margin-top:10px">
-              <label>App ID</label>
-              <input class="inp" id="app-id" placeholder="ej: 1234567890123456" oninput="checkStep1()">
-            </div>
-            <div class="inp-wrap">
-              <label>App Secret</label>
-              <input class="inp" id="app-secret" type="password" placeholder="tu app secret" oninput="checkStep1()">
-            </div>
-          </div>
-        </div>
-
-        <!-- STEP 2 -->
-        <div class="step" id="step2">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <div class="step-title">Token de tu Página de Facebook</div>
-            <div class="step-desc">En Meta Developers → Graph API Explorer → selecciona tu página → genera token con permisos <code style="color:var(--green);font-size:.78rem">pages_read_engagement</code> y <code style="color:var(--green);font-size:.78rem">pages_manage_posts</code></div>
-            <a class="help-link" href="https://developers.facebook.com/tools/explorer/" target="_blank">🔗 Graph API Explorer</a>
-            <div class="inp-wrap" style="margin-top:10px">
-              <label>Page Access Token</label>
-              <input class="inp" id="page-token" type="password" placeholder="EAAxxxxxx..." oninput="checkStep2()">
-            </div>
-            <button class="btn btn-outline btn-sm" style="margin-top:4px" onclick="verificarToken()">🔍 Verificar Token</button>
-            <div class="token-status idle" id="token-status">Ingresa tu token para verificar</div>
-          </div>
-        </div>
-
-        <!-- STEP 3 -->
-        <div class="step" id="step3">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <div class="step-title">ID de tu Página</div>
-            <div class="step-desc">En Facebook, ve a tu Página → Configuración → Información de la página → copia el <strong>Page ID</strong> (solo números).</div>
-            <div class="inp-wrap" style="margin-top:8px">
-              <label>Page ID</label>
-              <input class="inp" id="page-id" placeholder="ej: 123456789012345" oninput="checkStep3()">
-            </div>
-          </div>
-        </div>
-
-        <!-- STEP 4 -->
-        <div class="step" id="step4">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <div class="step-title">Conectar al Live</div>
-            <div class="step-desc">Pega el link de tu Facebook Live activo o ingresa el Video ID manualmente.</div>
-            <div class="inp-wrap" style="margin-top:8px">
-              <label>Link o ID del Live</label>
-              <input class="inp" id="live-input" placeholder="https://www.facebook.com/... o Video ID">
-            </div>
-            <div style="display:flex;gap:8px;margin-top:8px">
-              <button class="btn btn-fb btn-sm" style="flex:1" onclick="conectarLive()">📡 Conectar al Live</button>
-              <button class="btn btn-red btn-sm" id="stop-btn" onclick="detenerLive()" disabled>⏹ Parar</button>
-            </div>
-            <div class="polling-bar" id="polling-bar"></div>
-
-            <div class="live-status" style="margin-top:12px">
-              <div class="ls-row">
-                <span class="ls-label">Estado</span>
-                <span class="ls-value" id="ls-estado">Desconectado</span>
-              </div>
-              <div class="ls-row" style="margin-top:5px">
-                <span class="ls-label">Video ID</span>
-                <span class="ls-value" id="ls-video-id">—</span>
-              </div>
-              <div class="ls-row" style="margin-top:5px">
-                <span class="ls-label">Comentarios revisados</span>
-                <span class="ls-value" id="ls-revisados">0</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /steps -->
+      <button class="btn btn-green" style="width:100%;margin-top:16px" onclick="registrarManual()">✅ Registrar Pedido</button>
     </div>
   </div>
 
   <!-- CLIENTS CARD -->
   <div class="card">
-    <div class="card-head"><div class="dot dot-green"></div><h2>Clientes del Live</h2></div>
+    <div class="card-head"><div class="dot dot-blue"></div><h2>Clientes</h2></div>
     <div class="card-body" style="padding:14px">
       <div class="clients-grid" id="clients-grid">
         <div class="empty"><div class="empty-icon">👥</div>Sin clientes aún</div>
@@ -442,49 +251,13 @@ tbody td{padding:10px 12px;vertical-align:middle}
 </div><!-- /left -->
 
 <!-- ========== RIGHT ========== -->
-<div class="right-col">
-
-  <!-- COMMENT FEED -->
-  <div class="card">
-    <div class="card-head"><div class="dot dot-red"></div><h2>Comentarios en Vivo</h2> <span style="font-size:.75rem;color:var(--muted);margin-left:auto" id="feed-count">0 comentarios</span></div>
-    <div class="card-body" style="padding:14px">
-      <div class="feed-wrap" id="feed-wrap">
-        <div class="empty"><div class="empty-icon">💬</div>Los comentarios aparecerán aquí cuando conectes el live</div>
-      </div>
-
-      <!-- CAPTURA MANUAL -->
-      <div class="manual-section">
-        <div class="sec-title">⌨ Captura manual (backup)</div>
-        <textarea class="inp" id="manual-comment" placeholder='Pega comentario: "María yo quiero el vestido rojo $350"' style="resize:vertical;min-height:64px"></textarea>
-        <div class="inp-row" style="margin-top:8px">
-          <div>
-            <label style="display:block;font-size:.72rem;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.7px">Cliente</label>
-            <input class="inp" id="m-cliente" placeholder="Nombre">
-          </div>
-          <div>
-            <label style="display:block;font-size:.72rem;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.7px">Precio $</label>
-            <input class="inp" id="m-precio" type="number" placeholder="0.00">
-          </div>
-          <div>
-            <label style="display:block;font-size:.72rem;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.7px">Producto</label>
-            <input class="inp" id="m-producto" placeholder="Nombre producto">
-          </div>
-          <div>
-            <label style="display:block;font-size:.72rem;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.7px">Cant.</label>
-            <input class="inp" id="m-cantidad" type="number" value="1" min="1">
-          </div>
-        </div>
-        <div style="display:flex;gap:8px;margin-top:10px">
-          <button class="btn btn-green btn-sm" style="flex:1" onclick="registrarManual()">✅ Registrar Pedido</button>
-          <button class="btn btn-outline btn-sm" onclick="parsearManual()">🤖 Auto-detectar</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<div style="display:flex;flex-direction:column;gap:16px">
 
   <!-- ORDERS TABLE -->
   <div class="card">
-    <div class="card-head"><div class="dot dot-amber"></div><h2>Pedidos Registrados</h2>
+    <div class="card-head">
+      <div class="dot dot-amber"></div>
+      <h2>Pedidos Registrados</h2>
       <span style="font-size:.75rem;color:var(--muted);margin-left:auto" id="orders-count">0 pedidos · $0.00</span>
     </div>
     <div class="card-body" style="padding:0 0 14px 0">
@@ -492,11 +265,11 @@ tbody td{padding:10px 12px;vertical-align:middle}
         <table>
           <thead>
             <tr>
-              <th>#</th><th>Hora</th><th>Cliente</th><th>Producto</th><th>Cant</th><th>Precio</th><th>Subtotal</th><th>Fuente</th><th></th>
+              <th>#</th><th>Hora</th><th>Cliente</th><th>Producto</th><th>Cant</th><th>Precio</th><th>Subtotal</th><th></th>
             </tr>
           </thead>
           <tbody id="orders-body">
-            <tr><td colspan="9" class="empty" style="padding:24px">Los pedidos aparecerán aquí</td></tr>
+            <tr><td colspan="8" class="empty" style="padding:24px">Los pedidos aparecerán aquí</td></tr>
           </tbody>
         </table>
       </div>
@@ -521,7 +294,7 @@ tbody td{padding:10px 12px;vertical-align:middle}
       <div style="margin-top:14px;padding:12px;background:var(--s1);border-radius:10px;border:1px solid var(--border)">
         <div style="font-size:.75rem;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.7px">🔗 URL de Google Sheets Webhook (opcional)</div>
         <input class="inp" id="sheets-webhook" placeholder="https://script.google.com/macros/s/TU_ID/exec" style="margin-bottom:8px">
-        <div style="font-size:.75rem;color:var(--muted)">Si configuras el script de Google Apps Script (incluido en la guía), cada pedido se enviará automáticamente en tiempo real.</div>
+        <div style="font-size:.75rem;color:var(--muted)">Cada pedido registrado se enviará automáticamente en tiempo real.</div>
       </div>
     </div>
   </div>
@@ -534,195 +307,9 @@ tbody td{padding:10px 12px;vertical-align:middle}
 <div id="toast"></div>
 
 <script>
-// ============================================================
-//  STATE
-// ============================================================
 let pedidos = [];
 let clientes = {};
 let counter = 1;
-let pollingInterval = null;
-let lastCommentTime = null;
-let revisados = 0;
-let comentariosEnFeed = new Set();
-let feedItems = [];
-
-const CONFIG = {
-  pageToken: '',
-  pageId: '',
-  videoId: '',
-  sheetsWebhook: ''
-};
-
-// ============================================================
-//  STEP SYSTEM
-// ============================================================
-function checkStep1() {
-  const id = document.getElementById('app-id').value.trim();
-  const secret = document.getElementById('app-secret').value.trim();
-  if (id && secret) markStep(1, true);
-}
-function checkStep2() {
-  CONFIG.pageToken = document.getElementById('page-token').value.trim();
-  if (CONFIG.pageToken.length > 20) markStep(2, true);
-}
-function checkStep3() {
-  CONFIG.pageId = document.getElementById('page-id').value.trim();
-  if (CONFIG.pageId) {
-    markStep(3, true);
-    checkSetupComplete();
-  }
-}
-function markStep(n, done) {
-  const el = document.getElementById('step'+n);
-  el.classList.remove('active');
-  if (done) {
-    el.classList.add('done');
-    const next = document.getElementById('step'+(n+1));
-    if (next) next.classList.add('active');
-  }
-}
-function checkSetupComplete() {
-  if (CONFIG.pageToken && CONFIG.pageId) {
-    document.getElementById('setup-ok-banner').classList.add('show');
-    toast('✅ Configuración lista — ahora conecta tu live', 'ok');
-  }
-}
-
-// ============================================================
-//  TOKEN VERIFICATION
-// ============================================================
-async function verificarToken() {
-  const token = document.getElementById('page-token').value.trim();
-  if (!token) { toast('Ingresa el token primero', 'err'); return; }
-  const statusEl = document.getElementById('token-status');
-  statusEl.className = 'token-status idle';
-  statusEl.textContent = '⏳ Verificando…';
-  try {
-    const res = await fetch(`https://graph.facebook.com/me?access_token=${token}&fields=name,id`);
-    const data = await res.json();
-    if (data.name) {
-      statusEl.className = 'token-status ok';
-      statusEl.textContent = `✅ Token válido — Página: ${data.name}`;
-      CONFIG.pageToken = token;
-      markStep(2, true);
-      checkSetupComplete();
-    } else {
-      statusEl.className = 'token-status err';
-      statusEl.textContent = `❌ Token inválido: ${data.error?.message || 'error desconocido'}`;
-    }
-  } catch(e) {
-    statusEl.className = 'token-status err';
-    statusEl.textContent = '❌ Error de conexión';
-  }
-}
-
-// ============================================================
-//  CONNECT TO LIVE
-// ============================================================
-function extraerVideoId(input) {
-  // Format: facebook.com/video/XXXXX or videos/XXXXX or just a number
-  const numMatch = input.match(/\b(\d{10,})\b/);
-  if (numMatch) return numMatch[1];
-  return input.trim();
-}
-
-async function conectarLive() {
-  if (!CONFIG.pageToken) { toast('⚠ Primero configura tu Page Token', 'err'); return; }
-  const input = document.getElementById('live-input').value.trim();
-  if (!input) { toast('⚠ Ingresa el link o ID del live', 'err'); return; }
-
-  CONFIG.videoId = extraerVideoId(input);
-  document.getElementById('ls-video-id').textContent = CONFIG.videoId;
-
-  // Try to fetch live info
-  try {
-    const url = `https://graph.facebook.com/${CONFIG.videoId}?fields=title,status,live_status&access_token=${CONFIG.pageToken}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    if (data.error) {
-      toast(`⚠ ${data.error.message}`, 'err');
-      // Still allow manual start
-    } else {
-      toast(`📡 Conectado: ${data.title || 'Live activo'}`, 'ok');
-    }
-  } catch(e) {}
-
-  iniciarPolling();
-}
-
-function iniciarPolling() {
-  if (pollingInterval) clearInterval(pollingInterval);
-
-  document.getElementById('ls-estado').textContent = 'Conectado ✅';
-  document.getElementById('ls-estado').className = 'ls-value active';
-  document.getElementById('live-badge-txt').textContent = 'EN VIVO';
-  document.getElementById('polling-bar').classList.add('active');
-  document.getElementById('stop-btn').disabled = false;
-
-  toast('🔴 Escuchando comentarios del live…', 'info');
-  fetchComentarios(); // first immediate
-  pollingInterval = setInterval(fetchComentarios, 5000); // every 5s
-}
-
-function detenerLive() {
-  if (pollingInterval) clearInterval(pollingInterval);
-  pollingInterval = null;
-  document.getElementById('ls-estado').textContent = 'Detenido';
-  document.getElementById('ls-estado').className = 'ls-value';
-  document.getElementById('live-badge-txt').textContent = 'EN ESPERA';
-  document.getElementById('polling-bar').classList.remove('active');
-  document.getElementById('stop-btn').disabled = true;
-  toast('⏹ Polling detenido', 'info');
-}
-
-// ============================================================
-//  FETCH COMMENTS FROM FACEBOOK GRAPH API
-// ============================================================
-async function fetchComentarios() {
-  if (!CONFIG.videoId || !CONFIG.pageToken) return;
-
-  let url = `https://graph.facebook.com/${CONFIG.videoId}/comments?fields=from,message,created_time&limit=50&access_token=${CONFIG.pageToken}`;
-  if (lastCommentTime) url += `&since=${lastCommentTime}`;
-
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-    if (data.error) { console.warn('FB API error:', data.error.message); return; }
-
-    const comments = (data.data || []).filter(c => !comentariosEnFeed.has(c.id));
-    revisados += comments.length;
-    document.getElementById('ls-revisados').textContent = revisados;
-
-    comments.forEach(c => {
-      comentariosEnFeed.add(c.id);
-      if (lastCommentTime === null || c.created_time > lastCommentTime) lastCommentTime = c.created_time;
-      procesarComentario(c.from?.name || 'Usuario', c.message, c.id);
-    });
-
-    document.getElementById('feed-count').textContent = `${feedItems.length} comentarios`;
-  } catch(e) {
-    console.warn('Fetch error:', e);
-  }
-}
-
-// ============================================================
-//  PROCESS COMMENT — auto-detect sales
-// ============================================================
-function procesarComentario(autor, texto, id) {
-  const parsed = parsearComentario(autor, texto);
-  const esventa = parsed !== null;
-
-  // Add to feed
-  feedItems.unshift({ autor, texto, id, esventa, parsed });
-  renderFeed();
-
-  // Auto register if detected
-  if (esventa) {
-    registrarPedido({ ...parsed, fuente: 'auto' });
-    // Send to Google Sheets webhook if configured
-    enviarWebhook({ ...parsed, fuente: 'auto' });
-  }
-}
 
 // ============================================================
 //  PARSER
@@ -733,7 +320,6 @@ function parsearComentario(autor, texto) {
 
   const result = { cliente: autor, producto: '', precio: 0, cantidad: 1 };
 
-  // Price detection
   const pricePatterns = [
     /\$\s*([\d,]+(?:\.\d{1,2})?)/,
     /(\d+(?:\.\d{1,2})?)\s*(?:pesos|mxn|mn)\b/i,
@@ -745,15 +331,13 @@ function parsearComentario(autor, texto) {
     if (m) { result.precio = parseFloat((m[1]||m[0]).replace(',','')); break; }
   }
 
-  // Quantity
-  const cantM = texto.match(/\b(\d+)\s+(?:pieza|pza|unidad|pc|par|par\b)/i) ||
+  const cantM = texto.match(/\b(\d+)\s+(?:pieza|pza|unidad|pc|par)\b/i) ||
                 texto.match(/\b(dos|tres|cuatro|cinco)\b/i);
   if (cantM) {
     const numMap = {dos:2,tres:3,cuatro:4,cinco:5};
     result.cantidad = numMap[cantM[1].toLowerCase()] || parseInt(cantM[1]) || 1;
   }
 
-  // Product: text between "yo [keyword]" and price pattern
   const yoRx = /\byo\b(?:\s+(?:quiero|me llevo|me lo llevo|tomo|compro|el|la|los|las|un|una|necesito))?\s+(.+?)(?=\s*\$|\s+\d+\s*(?:pesos|mxn)|(?:\s+de\s+)?\d{2,5}\s*$|$)/i;
   const ym = texto.match(yoRx);
   if (ym) {
@@ -762,53 +346,6 @@ function parsearComentario(autor, texto) {
 
   if (!result.precio && !result.producto) return null;
   return result;
-}
-
-// ============================================================
-//  REGISTER ORDER
-// ============================================================
-function registrarPedido(data) {
-  const ahora = new Date();
-  const pedido = {
-    id: counter++,
-    hora: ahora.toLocaleTimeString('es-MX', {hour:'2-digit', minute:'2-digit', second:'2-digit'}),
-    fecha: ahora.toLocaleDateString('es-MX'),
-    cliente: data.cliente || 'Desconocido',
-    producto: data.producto || 'Sin especificar',
-    precio: data.precio || 0,
-    cantidad: data.cantidad || 1,
-    subtotal: (data.precio || 0) * (data.cantidad || 1),
-    fuente: data.fuente || 'manual'
-  };
-  pedidos.push(pedido);
-
-  if (!clientes[pedido.cliente]) clientes[pedido.cliente] = { total: 0, pedidos: 0, ultimo: '' };
-  clientes[pedido.cliente].total += pedido.subtotal;
-  clientes[pedido.cliente].pedidos++;
-  clientes[pedido.cliente].ultimo = pedido.hora;
-
-  renderOrders();
-  renderClients();
-  updateStats();
-
-  if (data.fuente === 'auto') toast(`🛒 AUTO: ${pedido.cliente} → $${pedido.subtotal.toFixed(2)}`, 'ok');
-  return pedido;
-}
-
-function registrarManual() {
-  const cliente = document.getElementById('m-cliente').value.trim();
-  const producto = document.getElementById('m-producto').value.trim();
-  const precio = parseFloat(document.getElementById('m-precio').value) || 0;
-  const cantidad = parseInt(document.getElementById('m-cantidad').value) || 1;
-  if (!cliente || !producto || !precio) { toast('⚠ Completa Cliente, Producto y Precio', 'err'); return; }
-  const p = registrarPedido({ cliente, producto, precio, cantidad, fuente: 'manual' });
-  enviarWebhook(p);
-  // Clear
-  ['m-cliente','m-producto','m-precio','m-cantidad','manual-comment'].forEach(id => {
-    const el = document.getElementById(id);
-    el.value = id === 'm-cantidad' ? '1' : '';
-  });
-  toast(`✅ Pedido registrado — $${p.subtotal.toFixed(2)}`, 'ok');
 }
 
 function parsearManual() {
@@ -828,6 +365,45 @@ function parsearManual() {
   }
 }
 
+// ============================================================
+//  REGISTER ORDER
+// ============================================================
+function registrarManual() {
+  const cliente = document.getElementById('m-cliente').value.trim();
+  const producto = document.getElementById('m-producto').value.trim();
+  const precio = parseFloat(document.getElementById('m-precio').value) || 0;
+  const cantidad = parseInt(document.getElementById('m-cantidad').value) || 1;
+  if (!cliente || !producto || !precio) { toast('⚠ Completa Cliente, Producto y Precio', 'err'); return; }
+
+  const ahora = new Date();
+  const pedido = {
+    id: counter++,
+    hora: ahora.toLocaleTimeString('es-MX', {hour:'2-digit', minute:'2-digit', second:'2-digit'}),
+    fecha: ahora.toLocaleDateString('es-MX'),
+    cliente, producto, precio, cantidad,
+    subtotal: precio * cantidad
+  };
+  pedidos.push(pedido);
+
+  if (!clientes[pedido.cliente]) clientes[pedido.cliente] = { total: 0, pedidos: 0, ultimo: '' };
+  clientes[pedido.cliente].total += pedido.subtotal;
+  clientes[pedido.cliente].pedidos++;
+  clientes[pedido.cliente].ultimo = pedido.hora;
+
+  renderOrders();
+  renderClients();
+  updateStats();
+  enviarWebhook(pedido);
+
+  // Clear fields
+  ['m-cliente','m-producto','m-precio','manual-comment'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('m-cantidad').value = '1';
+
+  toast(`✅ Pedido registrado — $${pedido.subtotal.toFixed(2)}`, 'ok');
+}
+
 function eliminarPedido(id) {
   const idx = pedidos.findIndex(p => p.id === id);
   if (idx < 0) return;
@@ -841,24 +417,20 @@ function eliminarPedido(id) {
 }
 
 // ============================================================
-//  WEBHOOK (Google Sheets)
+//  WEBHOOK
 // ============================================================
 async function enviarWebhook(pedido) {
   const url = document.getElementById('sheets-webhook').value.trim();
   if (!url) return;
   try {
     await fetch(url, {
-      method: 'POST',
-      mode: 'no-cors',
+      method: 'POST', mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        fecha: pedido.fecha || new Date().toLocaleDateString('es-MX'),
-        hora: pedido.hora || new Date().toLocaleTimeString('es-MX'),
-        cliente: pedido.cliente,
-        producto: pedido.producto,
-        precio: pedido.precio,
-        cantidad: pedido.cantidad,
-        subtotal: pedido.subtotal || (pedido.precio * pedido.cantidad)
+        fecha: pedido.fecha, hora: pedido.hora,
+        cliente: pedido.cliente, producto: pedido.producto,
+        precio: pedido.precio, cantidad: pedido.cantidad,
+        subtotal: pedido.subtotal
       })
     });
   } catch(e) { console.warn('Webhook error:', e); }
@@ -867,35 +439,10 @@ async function enviarWebhook(pedido) {
 // ============================================================
 //  RENDER
 // ============================================================
-function renderFeed() {
-  const wrap = document.getElementById('feed-wrap');
-  if (feedItems.length === 0) {
-    wrap.innerHTML = '<div class="empty"><div class="empty-icon">💬</div>Los comentarios aparecerán aquí cuando conectes el live</div>';
-    return;
-  }
-  wrap.innerHTML = feedItems.slice(0, 40).map(item => {
-    const initials = (item.autor || '?').split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
-    const tags = item.esventa ? `
-      <div class="c-tags">
-        <span class="c-tag tag-venta">🛒 Venta</span>
-        ${item.parsed?.producto ? `<span class="c-tag tag-producto">📦 ${item.parsed.producto.substring(0,20)}</span>` : ''}
-        ${item.parsed?.precio ? `<span class="c-tag tag-precio">$${item.parsed.precio}</span>` : ''}
-      </div>` : '';
-    return `<div class="comment-item ${item.esventa?'detected':''}">
-      <div class="c-avatar">${initials}</div>
-      <div class="c-body">
-        <div class="c-name">${item.autor}</div>
-        <div class="c-text">${item.texto.substring(0,120)}${item.texto.length>120?'…':''}</div>
-        ${tags}
-      </div>
-    </div>`;
-  }).join('');
-}
-
 function renderOrders() {
   const tbody = document.getElementById('orders-body');
   if (pedidos.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="9" class="empty" style="padding:24px">Los pedidos aparecerán aquí</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="8" class="empty" style="padding:24px">Los pedidos aparecerán aquí</td></tr>';
     return;
   }
   tbody.innerHTML = [...pedidos].reverse().map(p => `
@@ -907,7 +454,6 @@ function renderOrders() {
       <td style="text-align:center">${p.cantidad}</td>
       <td class="price-val">$${p.precio.toFixed(2)}</td>
       <td class="price-val">$${p.subtotal.toFixed(2)}</td>
-      <td><span class="badge ${p.fuente==='auto'?'badge-source-auto':'badge-source-manual'}">${p.fuente==='auto'?'🤖 Auto':'✍ Manual'}</span></td>
       <td><button class="del-btn" onclick="eliminarPedido(${p.id})">✕</button></td>
     </tr>`).join('');
 }
@@ -947,11 +493,10 @@ function updateStats() {
 // ============================================================
 function exportarCSV(target) {
   if (pedidos.length === 0) { toast('⚠ No hay pedidos para exportar', 'err'); return; }
-
   let csv = '\uFEFF';
-  csv += 'N°,Fecha,Hora,Cliente,Producto,Precio Unitario,Cantidad,Subtotal,Fuente\n';
+  csv += 'N°,Fecha,Hora,Cliente,Producto,Precio Unitario,Cantidad,Subtotal\n';
   pedidos.forEach(p => {
-    csv += `${p.id},"${p.fecha}","${p.hora}","${p.cliente}","${p.producto}",${p.precio},${p.cantidad},${p.subtotal.toFixed(2)},"${p.fuente}"\n`;
+    csv += `${p.id},"${p.fecha}","${p.hora}","${p.cliente}","${p.producto}",${p.precio},${p.cantidad},${p.subtotal.toFixed(2)}\n`;
   });
   csv += '\n=== RESUMEN POR CLIENTE ===\nCliente,Total Pedidos,Total Acumulado\n';
   Object.entries(clientes).forEach(([n,d]) => {
@@ -982,18 +527,6 @@ function toast(msg, type='info') {
   clearTimeout(el._t);
   el._t = setTimeout(()=>{ el.style.display='none'; }, 4000);
 }
-
-// Load saved config
-window.addEventListener('load', () => {
-  const saved = sessionStorage.getItem('liveconfig');
-  if (saved) {
-    try {
-      const c = JSON.parse(saved);
-      if (c.token) document.getElementById('page-token').value = c.token;
-      if (c.pageId) document.getElementById('page-id').value = c.pageId;
-    } catch(e) {}
-  }
-});
 </script>
 </body>
 </html>
